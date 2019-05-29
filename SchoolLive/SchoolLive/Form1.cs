@@ -16,5 +16,15 @@ namespace SchoolLive
         {
             InitializeComponent();
         }
+
+        public void Test()
+        {
+            
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
