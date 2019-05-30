@@ -33,6 +33,7 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.loginpass = new System.Windows.Forms.TextBox();
             this.LoginButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // loginid
@@ -78,12 +79,25 @@
             this.LoginButton.UseVisualStyleBackColor = false;
             this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("굴림", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.label1.Location = new System.Drawing.Point(12, 490);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(249, 11);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Copyright ⓒ 2019 최태운 all rights reserved.";
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(900, 510);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.LoginButton);
             this.Controls.Add(this.loginpass);
             this.Controls.Add(this.loginid);
@@ -101,5 +115,6 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         public System.Windows.Forms.TextBox loginpass;
         private System.Windows.Forms.Button LoginButton;
+        private System.Windows.Forms.Label label1;
     }
 }

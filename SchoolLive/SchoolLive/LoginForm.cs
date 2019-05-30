@@ -29,42 +29,34 @@ namespace SchoolLive
 
         }
 
+        private void LoginStatsCh(TextBox textbox  ,String ifs, String boxtext, Char chr, Color forcolor)
+        {
+            if (textbox.Text == ifs)
+            {
+                textbox.Text = boxtext;
+                textbox.PasswordChar = chr;
+                textbox.ForeColor = forcolor;
+            }
+        }
+
         private void Loginid_Enter(object sender, EventArgs e)
         {
-            if(loginid.Text == "아이디")
-            {
-                loginid.Text = "";
-                loginid.ForeColor = Color.Black;
-            }
+            LoginStatsCh(loginid , "아이디" , "", '\0' , Color.Black);
         }
 
         private void Loginid_Leave(object sender, EventArgs e)
         {
-            if (loginid.Text == "")
-            {
-                loginid.Text = "아이디";
-                loginid.ForeColor = Color.FromArgb(255, 128, 128);
-            }
+            LoginStatsCh(loginid ,"", "아이디", '\0', Color.FromArgb(255, 128, 128));
         }
 
         private void Loginpass_Enter(object sender, EventArgs e)
         {
-            if (loginpass.Text == "비밀번호")
-            {
-                loginpass.Text = "";
-                loginpass.PasswordChar = '*';
-                loginpass.ForeColor = Color.Black;
-            }
+            LoginStatsCh(loginpass , "비밀번호", "", '*', Color.Black);
         }
 
         private void Loginpass_Leave(object sender, EventArgs e)
         {
-            if (loginpass.Text == "")
-            {
-                loginpass.Text = "비밀번호";
-                loginpass.PasswordChar = '\0';
-                loginpass.ForeColor = Color.FromArgb(255, 128, 128);
-            }
+            LoginStatsCh(loginpass, "", "비밀번호", '\0', Color.FromArgb(255, 128, 128));
         }
 
         private void Loginpass_KeyDown(object sender, KeyEventArgs e)
@@ -74,7 +66,6 @@ namespace SchoolLive
                 LoginFormClose();
             }
         }
-
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
