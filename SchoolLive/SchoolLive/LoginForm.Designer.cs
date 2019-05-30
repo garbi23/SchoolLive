@@ -60,6 +60,7 @@
             this.loginpass.TabIndex = 1;
             this.loginpass.Text = "비밀번호";
             this.loginpass.Enter += new System.EventHandler(this.Loginpass_Enter);
+            this.loginpass.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Loginpass_KeyDown);
             this.loginpass.Leave += new System.EventHandler(this.Loginpass_Leave);
             // 
             // LoginForm

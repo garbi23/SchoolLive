@@ -13,6 +13,9 @@ namespace SchoolLive
     public partial class LoginForm : Form
     {
 
+
+        Form1 MainForm = new Form1();
+
         public LoginForm()
         {
             InitializeComponent();
@@ -53,6 +56,16 @@ namespace SchoolLive
                 loginpass.Text = "비밀번호";
                 loginpass.PasswordChar = '\0';
                 loginpass.ForeColor = Color.FromArgb(255, 128, 128);
+            }
+        }
+
+        private void Loginpass_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.Hide();
+                MainForm.ShowDialog(); //폼의 주체를 변경
+                this.Close();
             }
         }
     }
