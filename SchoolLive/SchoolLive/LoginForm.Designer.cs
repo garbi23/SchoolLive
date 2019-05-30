@@ -32,6 +32,7 @@
             this.loginid = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.loginpass = new System.Windows.Forms.TextBox();
+            this.LoginButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // loginid
@@ -63,12 +64,27 @@
             this.loginpass.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Loginpass_KeyDown);
             this.loginpass.Leave += new System.EventHandler(this.Loginpass_Leave);
             // 
+            // LoginButton
+            // 
+            this.LoginButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.LoginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LoginButton.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.LoginButton.ForeColor = System.Drawing.Color.White;
+            this.LoginButton.Location = new System.Drawing.Point(336, 443);
+            this.LoginButton.Name = "LoginButton";
+            this.LoginButton.Size = new System.Drawing.Size(230, 31);
+            this.LoginButton.TabIndex = 2;
+            this.LoginButton.Text = "로그인";
+            this.LoginButton.UseVisualStyleBackColor = false;
+            this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(900, 510);
+            this.Controls.Add(this.LoginButton);
             this.Controls.Add(this.loginpass);
             this.Controls.Add(this.loginid);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -84,5 +100,6 @@
         public System.Windows.Forms.TextBox loginid;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         public System.Windows.Forms.TextBox loginpass;
+        private System.Windows.Forms.Button LoginButton;
     }
 }

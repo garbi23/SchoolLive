@@ -21,6 +21,14 @@ namespace SchoolLive
             InitializeComponent();
         }
 
+        private void LoginFormClose()
+        {
+            this.Hide();
+            MainForm.ShowDialog(); //폼의 주체를 변경
+            this.Close();
+
+        }
+
         private void Loginid_Enter(object sender, EventArgs e)
         {
             if(loginid.Text == "아이디")
@@ -63,10 +71,14 @@ namespace SchoolLive
         {
             if (e.KeyCode == Keys.Enter)
             {
-                this.Hide();
-                MainForm.ShowDialog(); //폼의 주체를 변경
-                this.Close();
+                LoginFormClose();
             }
+        }
+
+
+        private void LoginButton_Click(object sender, EventArgs e)
+        {
+            LoginFormClose();
         }
     }
 }
