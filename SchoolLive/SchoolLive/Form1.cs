@@ -12,6 +12,11 @@ namespace SchoolLive
 {
     public partial class Form1 : Form
     {
+        LoginDB logindb = new LoginDB();
+
+        
+        
+
         public Form1()
         {
             InitializeComponent();
@@ -19,6 +24,8 @@ namespace SchoolLive
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            logindb.loginDBbring();
+            label2.Text = logindb.tempnum;
 
         }
 
