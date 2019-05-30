@@ -7,19 +7,55 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+
+
 
 namespace SchoolLive
 {
+
+
     public partial class LoginForm : Form
     {
 
+        public static String strcon = "Server=schoolivedb.clcbck0utech.ap-northeast-2.rds.amazonaws.com; Database=SchoolDB; Uid=garbi23;Pwd=chlgkxo56;" 
+            + "PORT=3306;";
+
+        MySqlConnection conne = new MySqlConnection(strcon);
+
+        private MySqlConnection dbcon;
+        private MySqlCommand dbcmd;
+        private MySqlDataReader dbread;
 
         Form1 MainForm = new Form1();
+
+        public static string tempid;
+        public static string temppass;
+
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+            dbcon = new MySqlConnection(strcon);
+            dbcmd = new MySqlCommand();
+            dbcmd.Connection = dbcon;
+
+            dbcmd.CommandText = "SELECT * FROM login_DB;";
+            dbcon.Open();
+            dbread = dbcmd.ExecuteReader();
+
+            while (dbread.Read())
+            {
+                tempid = dbread["id"].ToString();
+                temppass = dbread["pass"].ToString();
+            }
+            dbcon.Close();
+        }
 
         public LoginForm()
         {
             InitializeComponent();
         }
+
 
         private void LoginFormClose()
         {
@@ -61,7 +97,7 @@ namespace SchoolLive
 
         private void Loginpass_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter && loginid.Text == tempid && loginpass.Text == temppass)
             {
                 LoginFormClose();
             }
@@ -69,7 +105,11 @@ namespace SchoolLive
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            LoginFormClose();
+            if (loginid.Text == tempid && loginpass.Text == temppass)
+            {
+                LoginFormClose();
+            }
         }
+
     }
 }
