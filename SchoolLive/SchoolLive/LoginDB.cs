@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,30 +13,25 @@ namespace SchoolLive
         public static String strcon = "Server=schoolivedb.clcbck0utech.ap-northeast-2.rds.amazonaws.com; Database=SchoolDB; Uid=garbi23;Pwd=chlgkxo56;"
     + "PORT=3306;";
 
+
+
         private MySqlConnection dbcon;
         private MySqlCommand dbcmd;
         private MySqlDataReader dbread;
 
         public string tempid;
         public string temppass;
-        public string tempnum;
+        string path = "member.chdb";
+        string memnum;
 
-        Form1 form1 = new Form1();
-
-
-        public void loginDBbring()
+        public void loginDBbring(LoginForm lfrm)
         {
             dbcon = new MySqlConnection(strcon);
-
             dbcmd = new MySqlCommand();
-
             dbcmd.Connection = dbcon;
 
-            LoginForm loform = new LoginForm();
-
-            string loidvalue = loform.loidvalue;
-            string lopassvalue = loform.lopassvalue;
-            dbcmd.CommandText = "SELECT * FROM login_DB WHERE id='" + loidvalue + "'AND pass='" + lopassvalue + "'";
+            string querys = "SELECT * FROM login_DB WHERE id='" + lfrm.loginid.Text + "'AND pass='" + lfrm.loginpass.Text + "'";
+            dbcmd.CommandText = querys;
             dbcmd.CreateParameter();
             dbcon.Open();
             dbread = dbcmd.ExecuteReader();
@@ -45,10 +41,16 @@ namespace SchoolLive
                 
                 tempid = dbread["id"].ToString();
                 temppass = dbread["pass"].ToString();
-                tempnum = dbread["number"].ToString();
+                memnum = dbread["number"].ToString();
             }
-            dbcon.Close();
+
+            StreamWriter sw = new StreamWriter(path, true);
+            sw.WriteLine(memnum);
+            sw.Close();
+
+
         }
+
 
     }
 }
