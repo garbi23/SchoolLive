@@ -20,6 +20,8 @@ namespace SchoolLive
         public string temppass;
         public string tempnum;
 
+        Form1 form1 = new Form1();
+
 
         public void loginDBbring()
         {
@@ -29,12 +31,18 @@ namespace SchoolLive
 
             dbcmd.Connection = dbcon;
 
-            dbcmd.CommandText = "SELECT * FROM login_DB;";
+            LoginForm loform = new LoginForm();
+
+            string loidvalue = loform.loidvalue;
+            string lopassvalue = loform.lopassvalue;
+            dbcmd.CommandText = "SELECT * FROM login_DB WHERE id='" + loidvalue + "'AND pass='" + lopassvalue + "'";
+            dbcmd.CreateParameter();
             dbcon.Open();
             dbread = dbcmd.ExecuteReader();
 
             while (dbread.Read())
             {
+                
                 tempid = dbread["id"].ToString();
                 temppass = dbread["pass"].ToString();
                 tempnum = dbread["number"].ToString();

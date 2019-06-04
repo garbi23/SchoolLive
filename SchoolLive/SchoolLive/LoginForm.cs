@@ -23,11 +23,19 @@ namespace SchoolLive
 
         LoginDB logindb = new LoginDB();
 
+        public string loidvalue;
+        public string lopassvalue;
+
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
             logindb.loginDBbring();
+
         }
+
+
+
+       
 
         public LoginForm()
         {
@@ -75,14 +83,25 @@ namespace SchoolLive
 
         private void Loginpass_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter && loginid.Text == logindb.tempid && loginpass.Text == logindb.temppass)
+            loidvalue = loginid.Text;
+            lopassvalue = loginpass.Text;
+            if (e.KeyCode == Keys.Enter)
             {
-                LoginFormClose();
+                if (loginid.Text == logindb.tempid && loginpass.Text == logindb.temppass)
+                {
+                    LoginFormClose();
+                }
+                else if (loginid.Text == logindb.tempid && loginpass.Text == logindb.temppass)
+                {
+
+                }
             }
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
+            loidvalue = loginid.Text;
+            lopassvalue = loginpass.Text;
             if (loginid.Text == logindb.tempid && loginpass.Text == logindb.temppass)
             {
                 LoginFormClose();
