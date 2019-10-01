@@ -10,7 +10,7 @@ namespace SchoolLive
 {
     public class LoginDB
     {
-        public static String strcon = "Server=schoolivedb.clcbck0utech.ap-northeast-2.rds.amazonaws.com; Database=SchoolDB; Uid=garbi23;Pwd=chlgkxo56;"
+        public static String strcon = "Server=schoolivedb.clcbck0utech.ap-northeast-2.rds.amazonaws.com; Database=SchoolDB; Uid=********;Pwd=********;"
     + "PORT=3306;";
 
 
